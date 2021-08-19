@@ -107,6 +107,27 @@
 
 <p><img src="https://cdn.jsdelivr.net/gh/AtoposNinth/cdn//img/image-20210819100754618.png" alt="image-20210819100754618"></p>
 <p>6.预览：github用户名.github.io</p>
+<h1 id="Git操作"><a href="#Git操作" class="headerlink" title="Git操作"></a>Git操作</h1><blockquote>
+<p>基于命令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于个人</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> 地址 ：克隆一个仓库地址</span><br><span class="line"></span><br><span class="line">git init ：git初始化 生成.git文件</span><br><span class="line"></span><br><span class="line">git add 文件名称：git add . ：将所有文件提交到缓存 没有提交记录</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&quot;描述信息&quot;</span> ：提交到本地</span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> ：提交日志</span><br><span class="line"></span><br><span class="line">git status ：查看git状态</span><br><span class="line"></span><br><span class="line">git remote add origin 地址 ：关联远程地址</span><br><span class="line"></span><br><span class="line">git remote -v ：查看有没有关联远程地址</span><br><span class="line"></span><br><span class="line">git push origin 分支 ：推送到远程</span><br><span class="line"></span><br><span class="line">git pull ：从远程拉取</span><br><span class="line"></span><br><span class="line">git pull origin 分支名字</span><br><span class="line"></span><br><span class="line"><span class="comment"># 团队协作 ：分支</span></span><br><span class="line"></span><br><span class="line">命名 ：以姓名命名</span><br><span class="line"></span><br><span class="line">默认分支（主分支） ：master</span><br><span class="line"></span><br><span class="line">合并 ：dev分支</span><br><span class="line"></span><br><span class="line">git branch 分支名 ：没有参数会列出现有的heads，当前head之前有*</span><br><span class="line"></span><br><span class="line">git checkout 分支名 ：切换分支</span><br><span class="line"></span><br><span class="line">git merge 分支名字 ：合并分支</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/AtoposNinth/cdn//img/image-20210819170343494.png" alt="image-20210819170343494"></p>
+<h2 id="两人协作"><a href="#两人协作" class="headerlink" title="两人协作"></a>两人协作</h2><p>1.创建一个仓库，一个组只建一个仓库</p>
+<p>2.其中一人都克隆，写点代码，提交上去master</p>
+<p>3.B clone 远程代码</p>
+<p>4.A写代码</p>
+<p>5.A新建自己的分支</p>
+<p>​    自己的分支</p>
+<p>​    dev分支</p>
+<p>6.将代码提交上去</p>
+<p>7.B pull</p>
+<p>8.B要在本地 新建与远程对应的分支</p>
+<p>9.B也要写代码 要切换到B的分支里面写</p>
+<p>10.提交到远程</p>
+<p>11.A拉取</p>
+<p>12.A要在本地新建B的分支 git pull origin B</p>
+<p>13.A要切换到B的分支</p>
 
       
     </div>
