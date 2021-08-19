@@ -94,13 +94,19 @@
 <h3 id="在Typora中偏好设置中在图像中进行设置"><a href="#在Typora中偏好设置中在图像中进行设置" class="headerlink" title="在Typora中偏好设置中在图像中进行设置"></a>在Typora中偏好设置中在图像中进行设置</h3><p><img src="https://cdn.jsdelivr.net/gh/AtoposNinth/cdn//img/image-20210819092040472.png" alt="image-20210819092040472"></p>
 <h1 id="博客上线"><a href="#博客上线" class="headerlink" title="博客上线"></a>博客上线</h1><p>1.GitHub创建新的仓库 命名规则：GitHub账号.github.io</p>
 <p>2.找到代码博客目录</p>
-<p>3.生产静态资源</p>
+<p>3.生产静态资源 （生成public）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://cdn.jsdelivr.net/gh/AtoposNinth/cdn//img/image-20210819100621644.png" alt="image-20210819100621644"></p>
+<p>4.将public目录复制到另一个文件夹中</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AtoposNinth/cdn//img/image-20210819100857109.png" alt="image-20210819100857109"></p>
+<p>5.初始化git并关联，生成git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init <span class="comment">#在目录中多了一个.git文件</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;描述&quot;</span></span><br><span class="line">git remote add origin 远程地址</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
 
 
-
+<p><img src="https://cdn.jsdelivr.net/gh/AtoposNinth/cdn//img/image-20210819100754618.png" alt="image-20210819100754618"></p>
+<p>6.预览：github用户名.github.io</p>
 
       
     </div>
