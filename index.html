@@ -64,6 +64,75 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-writeCode-child" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/08/21/writeCode-child/" class="article-date">
+  <time datetime="2021-08-21T04:04:48.000Z" itemprop="datePublished">2021-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/21/writeCode-child/">writeCode_child</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="宝宝说项目记录"><a href="#宝宝说项目记录" class="headerlink" title="宝宝说项目记录"></a>宝宝说项目记录</h1><h2 id="完成部分："><a href="#完成部分：" class="headerlink" title="完成部分："></a>完成部分：</h2><ol>
+<li><p>搭建底部导航路由，以及二级路由</p>
+</li>
+<li><p>使用axios获取跨域数据</p>
+</li>
+<li><p>数据存入vueX，从vueX中调取数据进行儿歌，故事页面渲染</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">getSonglist</span>(<span class="params">params</span>)</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> data = 	  api.defineBLSongUrl(params).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">         <span class="built_in">this</span>.$store.commit(<span class="string">&quot;song/getSong&quot;</span>,res.list);</span><br><span class="line">   &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(err);</span><br><span class="line">   &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/AtoposNinth/cdn//img/image-20210822192517738.png" alt="image-20210822192517738"></p>
+</li>
+<li><p>儿歌跳转播放页面（路由跳转，使用query传参）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">goSing</span>(<span class="params">item</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.$router.push(&#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;/singsong&quot;</span>,</span><br><span class="line">        <span class="attr">query</span>: item,</span><br><span class="line">      &#125;);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>故事跳转播放页面（路由跳转，使用query传参）</p>
+</li>
+<li><p>更改audio默认样式</p>
+<blockquote>
+<p>注意：audio，video必须加controls属性，否则不能播放</p>
+</blockquote>
+</li>
+<li><p>默认样式播放使用.play，暂停使用.pause</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$refs.music.play() <span class="comment">//开始播放</span></span><br><span class="line"><span class="built_in">this</span>.$refs.music.pause() <span class="comment">//暂停</span></span><br></pre></td></tr></table></figure></li>
+<li><p>定时器进行滚动条样式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> n = <span class="built_in">this</span>;</span><br><span class="line"><span class="built_in">this</span>.time = <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    n.$refs.lineScr.style.width =</span><br><span class="line">            (n.$refs.music.currentTime /  n.$refs.music.duration) * <span class="number">100</span> + <span class="string">&quot;%&quot;</span>;</span><br><span class="line">    n.$refs.circle.style.left =</span><br><span class="line">            (n.$refs.music.currentTime /      n.$refs.music.duration) * <span class="number">100</span> + <span class="string">&quot;%&quot;</span>;</span><br><span class="line">&#125;, <span class="number">100</span>)</span><br><span class="line"><span class="comment">//当前播放时间/总时长=已播放进度条宽度</span></span><br></pre></td></tr></table></figure></li>
+<li><p>获取当前播放时间以及总时长</p>
+<blockquote>
+<p>注意： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$refs.music.addEventListener(<span class="string">&quot;canplay&quot;</span>, 		<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//监听audio是否加载完毕，如果加载完毕，则读取audio播放时间</span></span><br><span class="line"></span><br><span class="line">    	time = <span class="built_in">this</span>.duration;</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+</li>
+<li><p>路由跳转回儿歌，故事页面，进行延时器清除</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">     <span class="built_in">this</span>.$router.push(<span class="string">&quot;/listen/song&quot;</span>);</span><br><span class="line">     <span class="built_in">clearInterval</span>(<span class="built_in">this</span>.time);</span><br><span class="line">&#125;, <span class="number">100</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/21/writeCode-child/" data-id="cksn4lmm700003krgd0ny7v0b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-upload" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/08/19/upload/" class="article-date">
@@ -318,6 +387,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/08/21/writeCode-child/">writeCode_child</a>
+          </li>
         
           <li>
             <a href="/2021/08/19/upload/">upload</a>
